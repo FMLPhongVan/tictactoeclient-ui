@@ -18,6 +18,12 @@ public class Application extends javafx.application.Application {
         stage.show();
 
         new Thread(client::handle).start();
+
+        stage.setOnCloseRequest(e -> {
+            // close all threads
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public static void main(String[] args) {
