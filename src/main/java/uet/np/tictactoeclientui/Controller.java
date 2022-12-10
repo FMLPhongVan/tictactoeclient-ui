@@ -39,6 +39,14 @@ public class Controller implements Initializable {
         lPort.setText(String.format("Port: %d", port));
         lUID.setText(String.format("UID: %d", uid));
         lState.setText("State: Waiting board from server");
+        /*//setBoard(5, 10, 3, 4);
+        updateBoard(new int[][] {
+                {0, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+                {0, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+                {0, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+                {0, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+                {0, 1, 2, 1, 1, 1, 1, 1, 1, 1},
+        });*/
     }
 
     public void addLog(String log) {
@@ -134,7 +142,7 @@ public class Controller implements Initializable {
         FontIcon icon = new FontIcon(iconCode);
         icon.setIconSize((int) (0.6 * cellSize));
         icon.getStyleClass().add("box");
-        icon.setWrappingWidth(cellSize);
+        icon.setWrappingWidth(cellSize - 5);
         icon.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
         return icon;
     }
@@ -157,8 +165,6 @@ public class Controller implements Initializable {
         cell.getStyleClass().add("player-2");
 
         FontIcon icon = getIcon("fa-circle-o");
-        System.out.println(icon.getIconSize());
-        System.out.println(cellSize);
         cell.getChildren().add(icon);
         //icon.setX(icon.getIconSize() / 2.0);
         icon.setY(cellSize - icon.getIconSize() / 2.0);
