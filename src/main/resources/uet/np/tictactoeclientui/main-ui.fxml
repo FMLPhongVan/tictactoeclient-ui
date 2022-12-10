@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="581.0" prefWidth="1079.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uet.np.tictactoeclientui.Controller">
+   <left>
+      <AnchorPane prefHeight="581.0" prefWidth="354.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="lPort" layoutX="90.0" layoutY="40.0" text="Port:" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="40.0" />
+            <Label layoutX="126.0" layoutY="14.0" text="MATCH INFO" AnchorPane.topAnchor="10.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <Label fx:id="lUID" layoutX="92.0" layoutY="80.0" text="UID:" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="70.0" />
+            <Label fx:id="lState" layoutX="86.0" layoutY="108.0" text="State:" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="100.0" />
+            <Label layoutX="126.0" layoutY="142.0" text="BOARD INFO" AnchorPane.topAnchor="160.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="155.0" layoutY="256.0" text="LOGS" AnchorPane.topAnchor="280.0">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="lSize" layoutX="90.0" layoutY="175.0" prefHeight="16.0" prefWidth="123.0" text="Size: Waiting..." AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="190.0" />
+            <Label fx:id="lLengthTioWin" layoutX="96.0" layoutY="206.0" text="Length To Win: Waiting..." AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="220.0" />
+            <Label fx:id="lNumsOfBlocked" layoutX="160.0" layoutY="263.0" text="Nums of blocked: Waiting ..." AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="250.0" />
+            <ScrollPane layoutX="125.0" layoutY="272.0" prefHeight="289.0" prefWidth="243.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="310.0">
+               <content>
+                  <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefWidth="338.0">
+                     <children>
+                        <Label fx:id="lLogs" alignment="TOP_LEFT" contentDisplay="TOP" prefWidth="332.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+               </content>
+            </ScrollPane>
+            <Label fx:id="lIsX" layoutX="96.0" layoutY="118.0" text="You are: " AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="130.0" />
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="apBoardContainer" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

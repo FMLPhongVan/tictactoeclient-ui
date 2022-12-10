@@ -1,0 +1,24 @@
+.box {
+    -fx-background-insets: 0 0 0 0;
+    -fx-background-radius: 5px;
+    -fx-border-width: 0px;
+    -fx-color: #ECEFF4;
+    -fx-icon-color: #ECEFF4;
+    -fx-transition: ease-in 0.2s;
+}
+
+.blocked {
+    -fx-background-color: #4C566A;
+}
+
+.empty {
+    -fx-background-color: #E5E9F0;
+}
+
+.player-1 {
+    -fx-background-color: #BF616A;
+}
+
+.player-2 {
+    -fx-background-color: #81A1C1;
+}

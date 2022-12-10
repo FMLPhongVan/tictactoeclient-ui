@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="tictactoeclient-ui">
+    <output-path>$PROJECT_DIR$/out/artifacts/tictactoeclient_ui</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="uet.np.tictactoeclientui.Application" />
+        <option name="description" value="" />
+        <option name="height" value="720" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="TictactoeClient" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+        <option name="width" value="1080" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="tictactoeclient_ui.jar">
+        <element id="module-output" name="tictactoeclient-ui" />
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: uet.np.tictactoeclientui.Application
+Class-Path: ikonli-fontawesome-pack-12.3.1.jar ikonli-core-12.3.1.jar ja
+ vafx-base-17.0.2-linux.jar javafx-base-17.0.2.jar javafx-controls-17.0.
+ 2-linux.jar ikonli-javafx-12.3.1.jar javafx-graphics-17.0.2.jar javafx-
+ graphics-17.0.2-linux.jar javafx-fxml-17.0.2.jar javafx-fxml-17.0.2-lin
+ ux.jar javafx-controls-17.0.2.jar
+
