@@ -11,9 +11,9 @@ import java.net.Socket;
 
 public class Client {
     public boolean isUsingGui = false;
-    public static String address = "127.0.0.1";
+    //public static String address = "127.0.0.1";
     //public static int port = 16433;
-    //public static String address = "s.vominhduc.me";
+    public static String address = "s.vominhduc.me";
     public int port = 9000;
     public String KEY_MATCH = "123";
     public int UID = 44403;
@@ -82,14 +82,15 @@ public class Client {
                             System.out.println("m: " + ai.m);
                             System.out.println("lengthToWin: " + ai.lengthToWin);
                             System.out.println("Blocked: " + l);
+                            if (isUsingGui) {
+                                int finalL = l;
+                                Platform.runLater(() -> Controller.getInstance().setBoard(ai.m, ai.n, ai.lengthToWin, finalL));
+                            }
                             for (int i = 0; i < l; i++) {
                                 int blocked = Utils.convertByteArrayToInt(recvPacket.data, 16 + i * 4);
                                 ai.board[blocked / ai.n][blocked % ai.n] = -1;
                                 System.out.format("Blocked %d: %d %d\n", blocked, blocked / ai.n, blocked % ai.n);
-                            }
-                            if (isUsingGui) {
-                                int finalL = l;
-                                Platform.runLater(() -> Controller.getInstance().setBoard(ai.m, ai.n, ai.lengthToWin, finalL));
+                                if (isUsingGui) Platform.runLater(() -> Controller.getInstance().updateBoard(blocked / ai.n, blocked % ai.n, -1));
                             }
 
                             readyToPlay = true;
@@ -102,13 +103,15 @@ public class Client {
 
                                 ai.board[move / ai.n][move % ai.n] = 1;
                                 System.out.format("My move: %d %d\n", move / ai.n, move % ai.n);
+                                if (isUsingGui) {
+                                    int finalMove = move;
+                                    Platform.runLater(() -> Controller.getInstance().updateBoard(finalMove / ai.n, finalMove % ai.n, 1));
+                                }
 
                                 Packet sendPacket = PacketService.initSendPacket(id, move);
                                 dout.write(PacketService.turnPacketToBytes(sendPacket), 0, sendPacket.getSize());
                                 goFirst = false;
                             }
-
-                            if (isUsingGui) Platform.runLater(() -> Controller.getInstance().updateBoard(ai.board));
                             ai.printBoard();
 
                             break;
@@ -119,7 +122,10 @@ public class Client {
                             ai.board[move / ai.n][move % ai.n] = 2;
 
                             System.out.format("Opponent move: %d %d\n", move / ai.n, move % ai.n);
-                            if (isUsingGui) Platform.runLater(() -> Controller.getInstance().updateBoard(ai.board));
+                            if (isUsingGui) {
+                                int finalMove1 = move;
+                                Platform.runLater(() -> Controller.getInstance().updateBoard(finalMove1 / ai.n, finalMove1 % ai.n, 2));
+                            }
                             if (isUsingGui) {
                                 int finalMove = move;
                                 Platform.runLater(() -> Controller.getInstance().addLog("Opponent move: " + finalMove / ai.n + " " + finalMove % ai.n));
@@ -129,7 +135,7 @@ public class Client {
                             if (isUsingGui) {
                                 int finalMove = move;
                                 Platform.runLater(() -> Controller.getInstance().addLog("My move: " + finalMove / ai.n + " " + finalMove % ai.n));
-                                Platform.runLater(() -> Controller.getInstance().updateBoard(ai.board));
+                                Platform.runLater(() -> Controller.getInstance().updateBoard(finalMove / ai.n, finalMove % ai.n, 1));
                             }
                             ai.board[move / ai.n][move % ai.n] = 1;
 
@@ -149,7 +155,7 @@ public class Client {
                             if (isUsingGui) {
                                 int finalMove = move;
                                 Platform.runLater(() -> Controller.getInstance().addLog("My move: " + finalMove / ai.n + " " + finalMove % ai.n));
-                                Platform.runLater(() -> Controller.getInstance().updateBoard(ai.board));
+                                Platform.runLater(() -> Controller.getInstance().updateBoard(finalMove / ai.n, finalMove % ai.n, 1));
                             }
 
                             sendPacket = PacketService.initSendPacket(id, move);

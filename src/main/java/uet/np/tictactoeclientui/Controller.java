@@ -93,25 +93,15 @@ public class Controller implements Initializable {
         }
     }
 
-    public void updateBoard(int[][] board) {
-        for (int i = 0; i < nrow; i++) {
-            for (int j = 0; j < ncol; j++) {
-                if (board[i][j] == -1) {
-                    //gpBoard.getChildren().remove(i * ncol + j);
-                    gpBoard.add(getBlockedCell(), j, i);
-                    //gpBoard.getChildren().add(j * ncol + i, getBlockedCell());
-                }
-                else if (board[i][j] == 1) {
-                    //gpBoard.getChildren().remove(i * ncol + j);
-                    if (isX) gpBoard.add(getXCell(), j, i);
-                    else gpBoard.add(getOCell(), j, i);
-                }
-                else if (board[i][j] == 2) {
-                    //gpBoard.getChildren().remove(i * ncol + j);
-                    if (isX) gpBoard.add(getOCell(), j, i);
-                    else gpBoard.add(getXCell(), j, i);
-                }
-            }
+    public void updateBoard(int x, int y, int val) {
+        if (val == 1) {
+            if (isX) gpBoard.add(getXCell(),y, x);
+            else gpBoard.add(getOCell(), y, x);
+        } else if (val == 2) {
+            if (isX) gpBoard.add(getOCell(),y, x);
+            else gpBoard.add(getXCell(), y, x);
+        } else if(val == -1) {
+            gpBoard.add(getEmptyCell(), y, x);
         }
     }
 
