@@ -101,7 +101,7 @@ public class Controller implements Initializable {
             if (isX) gpBoard.add(getOCell(),y, x);
             else gpBoard.add(getXCell(), y, x);
         } else if(val == -1) {
-            gpBoard.add(getEmptyCell(), y, x);
+            gpBoard.add(getBlockedCell(), y, x);
         }
     }
 

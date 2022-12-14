@@ -13,14 +13,14 @@ public class Client {
     public boolean isUsingGui = false;
     //public static String address = "127.0.0.1";
     //public static int port = 16433;
-    public static String address = "s.vominhduc.me";
+    public String address = "s.vominhduc.me";
     public int port = 9000;
     public String KEY_MATCH = "123";
     public int UID = 44403;
 
     public void handle() {
         if (isUsingGui) Platform.runLater(() -> Controller.getInstance().setMatchInfo(port, UID));
-        System.out.println("Port: " + port);
+        System.out.println("Address: " + address + ":" + port);
         System.out.println("UID: " + UID);
         System.out.println("KEY_MATCH: " + KEY_MATCH);
         try (Socket socket = new Socket(address, port)) {

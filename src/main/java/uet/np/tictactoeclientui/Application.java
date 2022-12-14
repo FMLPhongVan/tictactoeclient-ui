@@ -28,6 +28,7 @@ public class Application extends javafx.application.Application {
 
     public static void main(String[] args) {
         if (args.length > 0) {
+            client.address = args[args.length - 4];
             client.port = Integer.parseInt(args[args.length - 3]);
             client.UID = Integer.parseInt(args[args.length - 2]);
             client.KEY_MATCH = args[args.length - 1];

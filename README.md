@@ -8,4 +8,4 @@ To run the application, follow the steps below:
 - Extract the zip file.
 - Open the extracted folder.
 - Make sure your computer has at least Java 17 installed.
-- Run the following command in the terminal: `java --module-path . --add-modules javafx.controls,javafx.fxml,javafx.base -jar tictactoeclient-ui.jar --gui <port> <uid> <password>`
+- Run the following command in the terminal: `java --module-path . --add-modules javafx.controls,javafx.fxml,javafx.base -jar tictactoeclient-ui.jar --gui <address> <port> <uid> <password>`
